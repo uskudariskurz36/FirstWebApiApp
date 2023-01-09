@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace FirstWebApiApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]/[Action]")]
+    //[Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -12,7 +13,7 @@ namespace FirstWebApiApp.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        [HttpGet]
+        [HttpGet("forecasts/list")]
         public IEnumerable<WeatherForecast> abuzittin()
         {
             List<WeatherForecast> list = new List<WeatherForecast>();
@@ -40,8 +41,8 @@ namespace FirstWebApiApp.Controllers
             //.ToArray();
         }
 
-        [HttpPost]
-        public WeatherForecast add(WeatherForecastAddModel model)
+        [HttpPost("add-forecast")]
+        public WeatherForecast ert(WeatherForecastAddModel model)
         {
             WeatherForecast weather = new WeatherForecast
             {
